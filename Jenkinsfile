@@ -8,10 +8,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-        		withEnv(["PATH+MAVEN=D:\\WiproTraining\\apache-maven-3.9.9\\bin"]) {
-            		sh 'mvn clean package'
-        	}
-        }
+                withEnv(["PATH+MAVEN=D:\\WiproTraining\\apache-maven-3.9.9\\bin"]) {
+                    bat 'mvn clean package'
+                }
+            }
+        } // Missing closing brace added here
+
         stage('Test') {
             steps {
                 bat 'mvn test'
@@ -24,4 +26,5 @@ pipeline {
         }
     }
 }
+
  
