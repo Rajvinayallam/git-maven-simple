@@ -8,8 +8,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'mvn clean package'
-            }
+        		withEnv(["PATH+MAVEN=D:\\WiproTraining\\apache-maven-3.9.9\\bin"]) {
+            		sh 'mvn clean package'
+        	}
         }
         stage('Test') {
             steps {
